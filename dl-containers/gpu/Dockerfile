@@ -26,8 +26,12 @@ ARG USERNAME=docker
 ARG USERID=1002
 
 # Install some dependencies
+# Opencv needs: libsm6, libxext6, libxrender1
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
+  libsm6 \
+  libxext6 \
+  libxrender1 \
   git \
   wget \
   ffmpeg \
