@@ -11,7 +11,7 @@ Run in a Ubuntu
 
 ## With Virtualenv
 
-We can fing it [here](https://github.com/sbatururimi/docker/tree/master/dl-containers/gpu/docker%2Bvirtualenv)
+We can find it [here](https://github.com/sbatururimi/docker/tree/master/dl-containers/gpu/docker%2Bvirtualenv)
 
 * To build the docker image directly:
 ```
@@ -22,6 +22,7 @@ docker build  --rm -t <image tag> .
 
 ----
 Settings in the Dockerfile
+
 Key | Default  Value | Explanation
 ----|----------------|------------
 USERNAME | docker | the user to be used instead of `root`
@@ -31,4 +32,4 @@ PROJECT_DIR | projects | project folder that can be mapped to be constant
 * With make, we can change all settings in the Makefile:
 ```
 make
-``
+```
