@@ -1,11 +1,11 @@
-# docker
+# Introduction
 
-A repository containing some useful Docker files, setups for deep learning.
+A repository containing some useful Docker files, setups for deep learning. We show how to use anaconda/virtualenv inside a docker container. 
 There are 2 options to use run each docker container:
 * using `make`
 * using docker container directly
 
-# Containers
+# Virtual environments
 The (gpu docker file)[https://github.com/sbatururimi/docker/blob/master/dl-containers/gpu/Dockerfile] is a setup file for to run a container useful for Data science and machine learning tasks.
 Run in a Ubuntu
 
