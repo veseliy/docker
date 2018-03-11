@@ -12,13 +12,6 @@ FROM ${repository}:${CUDA_version}-${cudnn_version}-${flavor}-${os}${os_version}
 
 MAINTAINER Stas Batururimi <s.batururimi@gmail.com>
 
-## Python version and Conda version to be installed
-#ARG PYTHON_VERSION=3.6
-#ARG CONDA_PYTHON_VERSION=3
-#ARG CONDA_VERSION=4.3.31
-#ARG CONDA_DIR=/opt/conda
-
-# user
 # 1) if not launched with `make` uncomment the line
 ARG USERNAME=docker
 # 2) with `make` and arguments passed during the build command
@@ -49,33 +42,8 @@ RUN apt-get update && \
   && apt-get clean \
   &&  rm -rf /var/lib/apt/lists/*
 
-# Conda
-#ENV PATH $CONDA_DIR/bin:$PATH
-
-# Conda installers https://repo.continuum.io/miniconda/
-#RUN apt-get update \
-#  && apt-get install -y --no-install-recommends ca-certificates \
-#  && wget --quiet https://repo.continuum.io/miniconda/Miniconda$CONDA_PYTHON_VERSION-$CONDA_VERSION-Linux-x86_64.sh -O /tmp/miniconda.sh \ 
-#  && echo 'export PATH=$CONDA_DIR/bin:$PATH' > /etc/profile.d/conda.sh \
-#  && /bin/bash /tmp/miniconda.sh -b -p $CONDA_DIR  \
-#  && rm -rf /tmp/* \
-#  && apt-get clean \
-#  && rm -rf /var/lib/apt/lists/* 
-
-
-# user's home dir should be mapped from EFS
-#RUN useradd --create-home -s /bin/bash --no-user-group -u $USERID $USERNAME \ 
-#  && chown $USERNAME $CONDA_DIR -R \
-#  && adduser $USERNAME sudo \
-#  && echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-# Instal pip and Virtualenv
-# for Python 2.7
-#RUN apt-get update && \
-#	apt-get install -y --no-install-recommends python-pip python-dev python-virtualenv
 # for Python 3.n
 RUN apt-get update \
-#	&& add-apt-repository universe \ 
 	&& apt-get install -y --install-recommends \
 	python3-pip \ 
 	python3-dev \
@@ -91,9 +59,6 @@ RUN useradd --create-home -s /bin/bash --no-user-group -u $USERID  $USERNAME \
 
 # activate user
 USER $USERNAME
-#RUN mkdir -p /home/$USERNAME/notebooks
-#VOLUME /home/$USERNAME/notebooks
-#WORKDIR /home/$USERNAME/notebooks
 
 # set the folder
 # 1) uncomment if not launched from `make`
@@ -104,31 +69,6 @@ ARG PROJECT_DIR=projects
 RUN mkdir -p /home/$USERNAME/$PROJECT_DIR
 WORKDIR /home/$USERNAME/$PROJECT_DIR
 
-# be sure to have read/write access to the PROJECT_DIR
-#RUN chmod -R 700
-# install python & jupyter nitebooks  using Anaconda
-#RUN conda install -y --quiet python=$PYTHON_VERSION \
-#  && conda install -y --quiet jupyter  notebook 
-
-# upgrade pip
-#RUN pip install --upgrade pip
-
-
-# Create a Virtualenv environment
-# for Python 2.7
-#RUN virtualenv --system-site-packages $PROJECT_DIR/py2
-# for Python 3.n
-#RUN virtualenv --system-site-packages -p python3 $PROJECT_DIR/py3
-
-# Activate the Virtualenv environment
-# By default py3 environment is activated
-#RUN source $PROJECT_DIR/py3/bin/activate
-
-# Ensure pip ≥8.1 is installed:
-#RUN easy_install -U pip
-
-
-# Allow to use the jupyter notebooks without tokens
 #COPY jupyter_notebook_config.py .jupyter/
 
 
