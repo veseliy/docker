@@ -13,7 +13,10 @@ Run in a Ubuntu
 
 We can find it [here](https://github.com/sbatururimi/docker/tree/master/dl-containers/gpu/docker%2Bvirtualenv)
 
-* To build the docker image directly:
+###  docker build
+
+1.
+
 ```
 docker build  --rm -t <image tag> .
 ```
@@ -29,7 +32,23 @@ USERNAME | docker | the user to be used instead of `root`
 USERID | 1002 | the user `id` mapped from the host. Can be found with $id -u
 PROJECT_DIR | projects | project folder that can be mapped to be constant
 
-* With make, we can change all settings in the Makefile:
+2. Run with a GPU
+
+```
+docker run --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=all -d -it  -p 8887:8888 <image tag>
+```
+
+3. Access the container:
+
+```
+docker exec -it <container ID> /bin/bash
+```
+### Make build 
+
 ```
 make
 ```
+
+# License
+
+[[License: MIT](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/sbatururimi/docker/blob/master/LICENSE)
