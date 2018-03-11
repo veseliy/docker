@@ -51,4 +51,4 @@ make
 
 # License
 
-[[License: MIT](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/sbatururimi/docker/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/sbatururimi/docker/blob/master/LICENSE)
