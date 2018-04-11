@@ -5,15 +5,18 @@ There are 2 options to use run each docker container:
 * using `make`
 * using docker container directly
 
-# Virtual environments
-The (gpu docker file)[https://github.com/sbatururimi/docker/blob/master/dl-containers/gpu/Dockerfile] is a setup file for to run a container useful for Data science and machine learning tasks.
-Run in a Ubuntu
+# Structure
 
-## With Virtualenv
+- GPU
+    *  (gpu docker file)[https://github.com/sbatururimi/docker/blob/master/dl-containers/gpu/Dockerfile] is a setup file for to run a container useful for Data science and machine learning tasks. It uses Ubuntu as OS system and setup a non-root user.
 
-We can find it [here](https://github.com/sbatururimi/docker/tree/master/dl-containers/gpu/docker%2Bvirtualenv)
+# Recommendations
 
-###  docker build
+Inside your containers, use Virtualenv whenever possible when building your models.
+
+Possible alternative is [Anaconda](https://www.anaconda.com/what-is-anaconda/)
+
+# Usinge  docker directly
 
 1.
 
@@ -43,7 +46,8 @@ docker run --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=all -d -it  -p 8887:8888 <
 ```
 docker exec -it <container ID> /bin/bash
 ```
-### Make build 
+
+# Using Make  
 
 ```
 make
