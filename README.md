@@ -49,6 +49,7 @@ docker exec -it <container ID> /bin/bash
 
 # Using Make  
 
+Take a look at the automatization of building and runing a docker container with make-build [here](https://github.com/sbatururimi/docker/blob/master/dl-containers/gpu/docker%2Bvirtualenv/Makefile)
 ```
 make
 ```
