@@ -1,6 +1,6 @@
 # How to use
 
-1. Install (docker)[https://docs.docker.com/docker-for-mac/install/].
+1. Install [docker](https://docs.docker.com/docker-for-mac/install/).
 2. Build a docker image using the Dockerfile that can be found in this folder. That is run you terminal from this folder with following command:
 
 ```
