@@ -1,6 +1,6 @@
 # Introduction
 
-A repository containing some useful Docker files, setups for deep learning. We show how to use anaconda/virtualenv inside a docker container. 
+A repository containing some useful Docker files, setups for deep learning, mpc (model predictive controller) and other. We show how to use anaconda/virtualenv inside a docker container. 
 There are 2 options to use run each docker container:
 * using `make`
 * using docker container directly
